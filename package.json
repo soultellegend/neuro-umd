@@ -18,6 +18,10 @@
     "intelligo": "1.3.0",
     "languagemodel": "latest",
     "lodash": "4.17.15",
+    "rollup": "^2.46.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "sprintf": "0.1.5",
     "svm": "0.1.1",
     "temp": "0.9.1",
@@ -35,6 +39,7 @@
   "scripts": {
     "start": "node index.js",
     "build": "babel src -d dist",
+    "build:umd": "npm run build && rollup -c",
     "test": "mocha --require @babel/register"
   },
   "contributors": [
