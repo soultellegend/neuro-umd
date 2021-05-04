@@ -5,7 +5,7 @@ TODO: SpellChecker should be reorganized
 import _, { compact, flattenDeep, forEach, isArray, map } from "lodash";
 import { CollectionOfExtractors, normalize } from "../features";
 import { clonedataset } from "../utils/list";
-import { normalizeOutputLabels } from "./multilabel/multilabelutils";
+const { normalizeOutputLabels } = require("./multilabel/multilabelutils");
 
 /**
  * EnhancedClassifier - wraps any classifier with feature-extractors and feature-lookup-tables.

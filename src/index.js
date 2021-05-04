@@ -1,15 +1,15 @@
-import EnhancedClassifier from "./core/EnhancedClassifier";
-import multilabel from "./core/multilabel";
-import NeuralNetwork from "./core/neural/NeuralNetwork";
+const { EnhancedClassifier } = require("./core/EnhancedClassifier");
+const multilabel = require("./core/multilabel");
+const NeuralNetwork = require("./core/neural/NeuralNetwork");
 import SvmJs from "./core/svm/SvmJs";
-import SvmLinear from "./core/svm/SvmLinear";
-import SvmPerf from "./core/svm/SvmPerf";
+const SvmLinear = require("./core/svm/SvmLinear");
+const SvmPerf = require("./core/svm/SvmPerf");
 import Winnow from "./core/winnow/WinnowHash";
-import features from "./features";
-import formats from "./formats";
-import utils from "./utils";
+const features = require("./features");
+const formats = require("./formats");
+const utils = require("./utils");
 
-export default {
+module.exports = {
   classifiers: {
     NeuralNetwork,
     SvmJs,
