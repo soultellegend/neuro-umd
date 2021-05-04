@@ -1,44 +1,39 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _EnhancedClassifier = _interopRequireDefault(require("./core/EnhancedClassifier"));
-
-var _multilabel = _interopRequireDefault(require("./core/multilabel"));
-
-var _NeuralNetwork = _interopRequireDefault(require("./core/neural/NeuralNetwork"));
-
 var _SvmJs = _interopRequireDefault(require("./core/svm/SvmJs"));
-
-var _SvmLinear = _interopRequireDefault(require("./core/svm/SvmLinear"));
-
-var _SvmPerf = _interopRequireDefault(require("./core/svm/SvmPerf"));
 
 var _WinnowHash = _interopRequireDefault(require("./core/winnow/WinnowHash"));
 
-var _features = _interopRequireDefault(require("./features"));
-
-var _formats = _interopRequireDefault(require("./formats"));
-
-var _utils = _interopRequireDefault(require("./utils"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _default = {
+var _require = require("./core/EnhancedClassifier"),
+    EnhancedClassifier = _require.EnhancedClassifier;
+
+var multilabel = require("./core/multilabel");
+
+var NeuralNetwork = require("./core/neural/NeuralNetwork");
+
+var SvmLinear = require("./core/svm/SvmLinear");
+
+var SvmPerf = require("./core/svm/SvmPerf");
+
+var features = require("./features");
+
+var formats = require("./formats");
+
+var utils = require("./utils");
+
+module.exports = {
   classifiers: {
-    NeuralNetwork: _NeuralNetwork["default"],
+    NeuralNetwork: NeuralNetwork,
     SvmJs: _SvmJs["default"],
-    SvmLinear: _SvmLinear["default"],
-    SvmPerf: _SvmPerf["default"],
+    SvmLinear: SvmLinear,
+    SvmPerf: SvmPerf,
     Winnow: _WinnowHash["default"],
-    multilabel: _multilabel["default"],
-    EnhancedClassifier: _EnhancedClassifier["default"]
+    multilabel: multilabel,
+    EnhancedClassifier: EnhancedClassifier
   },
-  features: _features["default"],
-  formats: _formats["default"],
-  utils: _utils["default"]
+  features: features,
+  formats: formats,
+  utils: utils
 };
-exports["default"] = _default;

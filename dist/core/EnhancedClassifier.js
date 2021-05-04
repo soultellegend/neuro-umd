@@ -1,5 +1,7 @@
 "use strict";
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -11,9 +13,9 @@ var _features = require("../features");
 
 var _list = require("../utils/list");
 
-var _multilabelutils = require("./multilabel/multilabelutils");
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -21,6 +23,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+var _require = require("./multilabel/multilabelutils"),
+    normalizeOutputLabels = _require.normalizeOutputLabels;
 /**
  * EnhancedClassifier - wraps any classifier with feature-extractors and feature-lookup-tables.
  *
@@ -46,6 +50,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * * 'instanceFilter' - filter of instance of training data and test data, if training instance is filtered is not used for training, if triaging instance is filtered by classify,
  it's classified empty class.
 */
+
+
 var EnhancedClassifier =
 /*#__PURE__*/
 function () {
@@ -302,7 +308,7 @@ function () {
 
       dataset = dataset.map(function (datum) {
         if (typeof this.InputSplitLabel === "function") {
-          datum.output = this.InputSplitLabel((0, _multilabelutils.normalizeOutputLabels)(datum.output));
+          datum.output = this.InputSplitLabel(normalizeOutputLabels(datum.output));
         } else {
           datum.output = normalizeClasses(datum.output, this.labelLookupTable);
         }
@@ -360,7 +366,7 @@ function () {
     value: function outputToFormat(data) {
       dataset = (0, _list.clonedataset)(data);
       dataset = dataset.map(function (datum) {
-        var normalizedLabels = (0, _multilabelutils.normalizeOutputLabels)(datum.output);
+        var normalizedLabels = normalizeOutputLabels(datum.output);
         return {
           input: datum.input,
           output: this.TestSplitLabel(normalizedLabels)
