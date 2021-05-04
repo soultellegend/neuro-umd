@@ -15,3 +15,7 @@ This repository is created for resolve node [issue](https://github.com/intelligo
 npm install neuro.umd.js --save
 ```
 
+
+# Example
+
+[Look at this.](https://github.com/raravel/neuro-umd/blob/master/test/umd.js)
