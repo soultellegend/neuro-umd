@@ -1,7 +1,7 @@
 {
   "name": "neuro.umd.js",
   "description": "Neuro.js for umd",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "author": "Turtuvshin Byambaa <toroo.byamba@gmail.com>",
   "homepage": "https://neuro.js.org",
   "repository": {
@@ -11,6 +11,7 @@
   "engines": {
     "node": ">=0.12"
   },
+  "main": "./dist/index.umd.js",
   "dependencies": {
     "async": "3.1.1",
     "brain.js": "1.6.1",
