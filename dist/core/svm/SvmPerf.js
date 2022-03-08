@@ -24,7 +24,7 @@ var fs = require('fs'),
 
 function SvmPerf(opts) {
   if (!SvmPerf.isInstalled()) {
-    var msg = "Cannot find the executable 'svm_perf_learn'. Please download it from the SvmPerf website, and put a link to it in your path.";
+    var msg = "Cannot find the executable 'svm_models/svm_perf_learn'. Please download it from the SvmPerf website, and put a link to it in your path.";
     console.error(msg);
     throw new Error(msg);
   }
@@ -40,7 +40,7 @@ function SvmPerf(opts) {
 
 SvmPerf.isInstalled = function () {
   try {
-    var result = execSync("svm_perf_learn");
+    var result = execSync("svm_models/svm_perf_learn");
   } catch (err) {
     return false;
   }
@@ -68,7 +68,7 @@ SvmPerf.prototype = {
     /*binarize=*/
     true, this.model_file_prefix + "_" + timestamp, "SvmPerf", FIRST_FEATURE_NUMBER);
     var modelFile = learnFile.replace(/[.]learn/, ".model");
-    var command = "svm_perf_learn " + this.learn_args + " " + learnFile + " " + modelFile;
+    var command = "svm_models/svm_perf_learn " + this.learn_args + " " + learnFile + " " + modelFile;
     if (this.debug) console.log("running " + command);
     console.log(command);
     var result = execSync(command);
