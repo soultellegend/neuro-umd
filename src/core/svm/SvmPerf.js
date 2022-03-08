@@ -38,7 +38,7 @@ function SvmPerf(opts) {
 
 SvmPerf.isInstalled = function() {
   try {
-    var result = execSync("svm_perf_learn");
+    var result = execSync("svm_models/svm_perf_learn");
   } catch (err) {
     return false;
   }
@@ -64,7 +64,7 @@ SvmPerf.prototype = {
 			var timestamp = new Date().getTime()+"_"+process.pid
 			var learnFile = svmcommon.writeDatasetToFile(dataset, this.bias, /*binarize=*/true, this.model_file_prefix+"_"+timestamp, "SvmPerf", FIRST_FEATURE_NUMBER);
 			var modelFile = learnFile.replace(/[.]learn/,".model");
-			var command = "svm_perf_learn "+this.learn_args+" "+learnFile + " "+modelFile;
+			var command = "svm_models/svm_perf_learn "+this.learn_args+" "+learnFile + " "+modelFile;
 			if (this.debug) console.log("running "+command);
 			console.log(command)
 
