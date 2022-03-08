@@ -1,12 +1,12 @@
 {
-  "name": "neuro.umd.js",
-  "description": "Neuro.js for umd",
+  "name": "neuro.umd",
+  "description": "Neuro.js for soul",
   "version": "0.1.11",
-  "author": "Turtuvshin Byambaa <toroo.byamba@gmail.com>",
+  "author": "Soultel",
   "homepage": "https://neuro.js.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/raravel/neuro-umd.git"
+    "url": "https://github.com/soultellegend/neuro-umd.git"
   },
   "engines": {
     "node": ">=0.12"
