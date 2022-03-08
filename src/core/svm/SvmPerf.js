@@ -24,7 +24,7 @@ var fs   = require('fs')
 
 function SvmPerf(opts) {
 	if (!SvmPerf.isInstalled()) {
-	 	var msg = "Cannot find the executable 'svm_perf_learn'. Please download it from the SvmPerf website, and put a link to it in your path.";
+	 	var msg = "Cannot find the executable 'svm_models/svm_perf_learn'. Please download it from the SvmPerf website, and put a link to it in your path.";
 	 	console.error(msg)
 	 	throw new Error(msg);
 	}
